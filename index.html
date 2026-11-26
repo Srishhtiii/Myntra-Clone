@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="StyleKart — a fashion shopping demo inspired by modern fashion marketplaces.">
+  <title>StyleKart | Fashion & Lifestyle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="top-strip">FLAT 20% OFF ON YOUR FIRST ORDER <span>•</span> USE CODE <strong>STYLE20</strong></div>
+
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="StyleKart home"><span class="brand-mark">S</span><span>STYLEKART</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a href="#products" data-category="Men">MEN</a>
+      <a href="#products" data-category="Women">WOMEN</a>
+      <a href="#products" data-category="Kids">KIDS</a>
+      <a href="#products" data-category="Home">HOME</a>
+      <a href="#products" data-category="Beauty">BEAUTY</a>
+      <a href="#offers" class="nav-studio">STUDIO <sup>NEW</sup></a>
+    </nav>
+    <form class="search-box" id="searchForm" role="search">
+      <button type="submit" aria-label="Search">⌕</button>
+      <input id="searchInput" type="search" placeholder="Search for products, brands and more" aria-label="Search products">
+    </form>
+    <div class="header-actions">
+      <button class="action" id="profileButton" type="button"><span>♙</span><small>Profile</small></button>
+      <button class="action" id="wishlistButton" type="button"><span>♡</span><small>Wishlist <b id="wishlistCount">0</b></small></button>
+      <button class="action" id="bagButton" type="button"><span>▢</span><small>Bag <b id="bagCount">0</b></small></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="offers" aria-label="Seasonal offer">
+      <div class="hero-copy">
+        <p class="eyebrow">THE EVERYDAY STYLE EDIT</p>
+        <h1>Find your<br><em>own style.</em></h1>
+        <p class="hero-text">Fresh fits, timeless favourites and little things that make a big difference.</p>
+        <a class="primary-button" href="#products">EXPLORE COLLECTION <span>→</span></a>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1300&q=85" alt="Friends exploring fashion together">
+        <div class="hero-sticker"><strong>NEW</strong><span>SEASON<br>ARRIVALS</span></div>
+      </div>
+      <div class="hero-side-note">DRESS LIKE YOU MEAN IT — STYLEKART 2026</div>
+    </section>
+
+    <section class="benefits" aria-label="Shopping benefits">
+      <div><span>✦</span><p><strong>Trend-first styles</strong><small>Fresh looks, every week</small></p></div>
+      <div><span>↗</span><p><strong>Easy browsing</strong><small>Find your next favourite</small></p></div>
+      <div><span>♡</span><p><strong>Save your picks</strong><small>Wishlist what you love</small></p></div>
+      <div><span>▣</span><p><strong>Simple shopping bag</strong><small>Keep items together</small></p></div>
+    </section>
+
+    <section class="category-section section-wrap">
+      <div class="section-heading">
+        <div><p class="eyebrow">A LITTLE SOMETHING FOR EVERYONE</p><h2>Shop by category</h2></div>
+        <a href="#products" class="text-link">VIEW ALL <span>→</span></a>
+      </div>
+      <div class="category-grid">
+        <button class="category-tile" data-filter="Women"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=80" alt=""><span>WOMEN <b>↗</b></span></button>
+        <button class="category-tile" data-filter="Men"><img src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=700&q=80" alt=""><span>MEN <b>↗</b></span></button>
+        <button class="category-tile" data-filter="Kids"><img src="https://images.unsplash.com/photo-1503919005314-30d93d07d823?auto=format&fit=crop&w=700&q=80" alt=""><span>KIDS <b>↗</b></span></button>
+        <button class="category-tile" data-filter="Home"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=80" alt=""><span>HOME <b>↗</b></span></button>
+      </div>
+    </section>
+
+    <section class="products-section section-wrap" id="products">
+      <div class="section-heading product-heading">
+        <div><p class="eyebrow">HANDPICKED FOR YOUR FEED</p><h2>Trending right now</h2><p class="subheading">A few good things we think you'll love.</p></div>
+        <div class="sort-wrap"><label for="sortSelect">SORT BY</label><select id="sortSelect"><option value="featured">Recommended</option><option value="low">Price: Low to High</option><option value="high">Price: High to Low</option></select></div>
+      </div>
+      <div class="filter-row" id="filterRow">
+        <button class="filter-chip active" data-filter="All">All products</button>
+        <button class="filter-chip" data-filter="Women">Women</button>
+        <button class="filter-chip" data-filter="Men">Men</button>
+        <button class="filter-chip" data-filter="Kids">Kids</button>
+        <button class="filter-chip" data-filter="Home">Home</button>
+        <button class="filter-chip" data-filter="Beauty">Beauty</button>
+      </div>
+      <p class="result-count" id="resultCount" aria-live="polite"></p>
+      <div class="product-grid" id="productGrid"></div>
+      <div class="empty-state" id="emptyState" hidden><span>⌕</span><h3>No products found</h3><p>Try another search or category.</p><button class="outline-button" id="resetButton">CLEAR FILTERS</button></div>
+    </section>
+
+    <section class="newsletter">
+      <div><p class="eyebrow">THE STYLEKART NOTE</p><h2>A little style in your inbox.</h2><p>Get updates on new arrivals and edits worth knowing about.</p></div>
+      <form id="newsletterForm"><input type="email" id="emailInput" placeholder="Enter your email address" required><button type="submit">SIGN ME UP ↗</button></form>
+      <p class="newsletter-message" id="newsletterMessage" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand"><a class="brand" href="#"><span class="brand-mark">S</span><span>STYLEKART</span></a><p>Everyday fashion. Your way.</p></div>
+    <div><h3>ONLINE SHOPPING</h3><a href="#products">Men</a><a href="#products">Women</a><a href="#products">Kids</a><a href="#products">Home & Living</a></div>
+    <div><h3>USEFUL LINKS</h3><a href="#offers">Offers</a><a href="#products">New arrivals</a><a href="#products">Trending</a><a href="#top">Back to top</a></div>
+    <div><h3>ABOUT THIS PROJECT</h3><p>A student frontend demonstration built with HTML, CSS and JavaScript.</p><p class="disclaimer">Independent educational project. Not affiliated with Myntra.</p></div>
+    <div class="copyright">© 2026 StyleKart Student Project. Made for learning.</div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
